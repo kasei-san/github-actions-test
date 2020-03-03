@@ -16,4 +16,4 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: us-east-2
     - name: Run a hello lambda
-      run: aws lambda invoke --function-name hello response.json
+      run: aws lambda invoke --function-name hello --region us-east-1 response.json
