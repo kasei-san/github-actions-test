@@ -1,0 +1,13 @@
+name: delete_branch
+
+on: [delete]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Echo branch name
+      run: echo ${GITHUB_REF}
+    - name: Echo commit hash
+      run: echo ${GITHUB_SHA}
