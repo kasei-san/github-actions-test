@@ -21,3 +21,5 @@ jobs:
       run: echo ${GITHUB_REF}
     - name: Echo commit hash
       run: echo ${GITHUB_SHA}
+    - name: Echo github.event.ref
+      run: echo "${{ github.event.ref }}"
