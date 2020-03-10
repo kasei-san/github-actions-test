@@ -21,3 +21,17 @@ jobs:
       run: echo ${GITHUB_REF}
     - name: Echo commit hash
       run: echo ${GITHUB_SHA}
+    - name: Echo github.event.ref
+      run: echo "${{ github.event.ref }}"
+    - name: fail
+      run: oejfoj3ofjp3kf
+    - name: Slack Notification when build failed
+      if: failure()
+      uses: rtCamp/action-slack-notify@master
+      env:
+        SLACK_CHANNEL: times-kobayashi
+        SLACK_COLOR: '#ff0000'
+        SLACK_TITLE: ':fire::fire::fire: Build error! :fire::fire::fire:'
+        SLACK_MESSAGE: "Build error! Please check github!"
+        SLACK_USERNAME: GitHub Actions
+        SLACK_WEBHOOK: ${{secrets.SLACK_WEBHOOK}}
